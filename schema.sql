@@ -1,0 +1,2 @@
+-- Estrutura do banco de dados da gráfica
+-- Em desenvolvimento
