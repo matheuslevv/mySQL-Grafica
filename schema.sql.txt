@@ -1,0 +1,38 @@
+CREATE DATABASE grafica;
+USE grafica;
+
+CREATE TABLE clientes (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(30) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    email VARCHAR(40),
+    data_cadastro DATE NOT NULL DEFAULT (CURRENT_DATE)
+);
+
+CREATE TABLE pedidos (
+    cliente_id INT NOT NULL,
+    valor DECIMAL(10,2) DEFAULT NULL,
+    data_pedido DATETIME NOT NULL DEFAULT (NOW()),
+    status TEXT,
+    ID INT NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (cliente_id) REFERENCES clientes(ID)
+);
+
+CREATE TABLE produtos(
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    descrição TEXT NOT NULL,
+    preço DECIMAL(10,2) NOT NULL,
+    estoque INT NOT NULL
+ ); 
+
+CREATE TABLE itens_pedidos(
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT NOT NULL,
+    produto_id INT NOT NULL,
+    quantidade INT NOT NULL,
+    preço_unitario DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (pedido_id) REFERENCES pedidos(ID),
+    FOREIGN KEY (produto_id) REFERENCES produtos(ID)
+ );
