@@ -3,11 +3,11 @@
 -- Tabela: clientes
 -- Armazena informações dos clientes da gráfica
 
--- Tabela: produtos
--- Armazena os produtos oferecidos pela gráfica
-
 -- Tabela: pedidos
--- Armazena os pedidos realizados pelos clientes
+-- Armazena os pedidos oferecidos pela gráfica
 
--- Tabela: pedido_produtos
+-- Tabela: produtos
+-- Armazena os produtos realizados pelos clientes
+
+-- Tabela: itens_pedidos
 -- Relaciona pedidos e produtos
